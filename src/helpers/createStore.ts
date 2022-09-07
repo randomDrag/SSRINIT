@@ -3,7 +3,7 @@ import {reducers ,StoreState } from '../client/reducers'
 
 export const createStore = () : Store => {
 
-const store = configureStore({ reducer : reducers , preloadedState : {}} )
+const store = configureStore({ reducer : reducers } )
 
 return store;
 }

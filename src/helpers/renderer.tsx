@@ -6,7 +6,7 @@ import {StaticRouter} from 'react-router-dom/server';
 import {Routes} from "../client/Routes";
 import { Provider } from "react-redux";
 import { RouteRender } from "./RouteRender";
-
+import serializeJavascript from "serialize-javascript";
 
 /* its converting react to string (fetching all the Html from JSX or TSX) and sending to client using express  */
 
@@ -34,6 +34,9 @@ export const Renderer = (req:Request , store : Store ) : string => {
    <body>
        <div id="root">${_RenderToString}</div>
        <script src="bundle.js"></script>
+       <script>
+       window.INITIAL_STATE = ${ serializeJavascript(store.getState())}
+       </script>
    </body>
    </html>
      

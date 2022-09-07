@@ -9,11 +9,19 @@ import { Provider } from "react-redux";
 
 import { RouteRender } from "../helpers/RouteRender";
 
-/* to render client side of routes we will use RenderRoute from react-dom-config
+
+declare global {
+    interface Window { INITIAL_STATE: {}; }
+}
+
+
+
+/* to render client side of routes we will use
+     RenderRoute from react-dom-config
     RouteRender converting array into react element
 */
 
-const store = configureStore({reducer : reducers})
+const store = configureStore({reducer : reducers, preloadedState : window.INITIAL_STATE})
 
 ReactDOM.hydrate(
     <Provider store={store}>
