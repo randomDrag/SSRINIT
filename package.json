@@ -1,0 +1,38 @@
+{
+  "name": "ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon --watch build --exec ./build/index.js",
+    "start": "concurrently npm:start:*",
+    "Dev:Server": "webpack --config webpack-server.js --watch",
+    "Dev:Client": "webpack --config webpack-client.js --watch",
+    "Dev:Start": "nodemon ./Build/bundle.js",
+    "Dev": "concurrently npm:Dev:*"
+  },
+  "author": "sumiT",
+  "license": "ISC",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.4",
+    "@types/node": "^18.7.6",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-router-config": "^5.0.6",
+    "axios": "^0.27.2",
+    "concurrently": "^7.3.0",
+    "express": "^4.18.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^6.3.0",
+    "ts-loader": "^9.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0",
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
