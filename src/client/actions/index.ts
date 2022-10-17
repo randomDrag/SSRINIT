@@ -29,7 +29,7 @@ export interface FetchTodoAction {
 /* all actions creator here */
 
 
-const url:string = '' ;
+const url:string = 'https://jsonplaceholder.typicode.com/todos' ;
 
 export const fetchTodo = () =>{ 
 

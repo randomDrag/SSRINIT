@@ -3,8 +3,10 @@ this webpack help to create bundle.js which attached to renderer.ts
 this is public bundle attach as script.
 
 */
-
-const path = require('path')
+// import path from 'path';
+// import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+const path = require('path');
+const MiniCssExtractPlugin = require( "mini-css-extract-plugin");
 
 module.exports = {
 
@@ -36,9 +38,23 @@ module : {
             test : [/\.ts$/, /\.tsx$/],
             use: 'ts-loader',
             exclude : /node_modules/,
+        },
+        {
+            test: [/\.css/i,],
+            use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            exclude : /node_modules/,
+        },{
+            test :[ /\.(svg|png|jpg|gif)$/i],
+            use : 'url-loader'
+          
         }
+    
     ]
-},
+},plugins : [
+    new MiniCssExtractPlugin({
+        linkType: 'text/css',
+      }),
+],
 
 /* this add that ext to import file */
 resolve: {
